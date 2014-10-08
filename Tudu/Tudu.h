@@ -13,4 +13,6 @@
 @property (nonatomic, strong) NSString *nombre;
 @property (nonatomic)         BOOL      completado;
 
+-(id)initWithNombre:(NSString *)nombre andCompletado:(BOOL)completado;
+
 @end

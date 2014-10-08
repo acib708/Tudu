@@ -7,6 +7,7 @@
 //
 
 #import "TuduTableViewController.h"
+#import "Tudu.h"
 
 @interface TuduTableViewController ()
 
@@ -26,12 +27,24 @@
                                                                                            target:self
                                                                                            action:@selector(addTudu)];
     
+    // Init tudus array with seed data
+    Tudu *item1 = [[Tudu alloc] initWithNombre:@"Comprar un perro"             andCompletado:NO];
+    Tudu *item2 = [[Tudu alloc] initWithNombre:@"Presentar Core Data"          andCompletado:NO];
+    Tudu *item3 = [[Tudu alloc] initWithNombre:@"Leer A Universe From Nothing" andCompletado:NO];
+    
+    _tudus = [[NSMutableArray alloc] initWithObjects:item1, item2, item3, nil];
+    
     // Add Title
     [self setTitle:@"Tudu"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Add Button Pressed
+-(void)addTudu{
+    
 }
 
 #pragma mark - Table view data source
