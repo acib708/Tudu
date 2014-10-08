@@ -8,6 +8,7 @@
 
 #import "TuduTableViewController.h"
 #import "Tudu.h"
+#import "AddViewController.h"
 
 @interface TuduTableViewController ()
 
@@ -36,8 +37,8 @@
                                           nota: @"Github: https://github.com/acib708/Tudu.git"
                                     completado:NO];
     Tudu *item3 = [[Tudu alloc] initWithNombre:@"Leer A Universe From Nothing"
-                                          nota: @"Que NO sea Beagle"
-                                    completado:NO];
+                                          nota: @"Lawrence Krausse"
+                                    completado:YES];
     
     // Add items to a mutable array. This will be our source for the data in the table view
     _tudus = [[NSMutableArray alloc] initWithObjects:item1, item2, item3, nil];
@@ -52,7 +53,7 @@
 
 #pragma mark - Add Button Pressed
 -(void)addTudu{
-    NSLog(@"Add Tudu");
+    [self performSegueWithIdentifier:@"modalToAdd" sender:self];
 }
 
 #pragma mark - TableView Data Source and Delegate
@@ -74,8 +75,26 @@
     // Configure the cell
     [cell.textLabel       setText:currentTudu.nombre];
     [cell.detailTextLabel setText:currentTudu.nota];
+    if(currentTudu.completado)
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    else
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Tudu *selectedTudu = [_tudus objectAtIndex:indexPath.row];
+    
+    if(selectedTudu.completado){
+        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
+        [selectedTudu setCompletado:NO];
+    }
+    else{
+        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+        [selectedTudu setCompletado:YES];
+    }
+    
 }
 
 #pragma mark - Segues
