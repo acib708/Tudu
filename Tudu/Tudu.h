@@ -10,4 +10,7 @@
 
 @interface Tudu : NSObject
 
+@property (nonatomic, strong) NSString *nombre;
+@property (nonatomic)         BOOL      completado;
+
 @end

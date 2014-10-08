@@ -9,5 +9,8 @@
 #import "Tudu.h"
 
 @implementation Tudu
+@synthesize nombre = _nombre, completado = _completado;
+
+
 
 @end
