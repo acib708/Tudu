@@ -101,4 +101,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 }
 
+-(IBAction)done:(UIStoryboardSegue *)segue{
+    AddViewController *avc = segue.sourceViewController;
+    
+    if(avc.tudu){
+        [_tudus addObject:avc.tudu];
+        [self.tableView reloadData];
+    }
+}
+
 @end

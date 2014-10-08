@@ -60,13 +60,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Qué tienes que hacer?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Maa-op-0fU">
-                                <rect key="frame" x="190" y="89" width="220" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Qué tienes que hacer?" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Maa-op-0fU">
+                                <rect key="frame" x="190" y="102" width="220" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="P2q-Bf-UwY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ran-Dy-Ma4">
-                                <rect key="frame" x="190" y="151" width="61" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nota" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JtA-vD-nKa">
+                                <rect key="frame" x="190" y="148" width="220" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="YjX-su-RPn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ran-Dy-Ma4">
+                                <rect key="frame" x="190" y="221" width="61" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="WKn-Bt-Cse"/>
+                                </constraints>
                                 <state key="normal" title="Cancelar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -74,8 +88,11 @@
                                     <action selector="cancelarPressed:" destination="FeN-MV-OYK" eventType="touchUpInside" id="wli-Ow-x5J"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHv-6o-nA1">
-                                <rect key="frame" x="318" y="151" width="92" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHv-6o-nA1">
+                                <rect key="frame" x="318" y="221" width="92" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="oJQ-H5-hP1"/>
+                                </constraints>
                                 <state key="normal" title="Agragar Tudu">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -85,9 +102,25 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JtA-vD-nKa" firstAttribute="top" secondItem="Maa-op-0fU" secondAttribute="bottom" constant="16" id="EwR-t2-MKe"/>
+                            <constraint firstItem="JtA-vD-nKa" firstAttribute="trailing" secondItem="oHv-6o-nA1" secondAttribute="trailing" id="HbK-Je-OLI"/>
+                            <constraint firstItem="oHv-6o-nA1" firstAttribute="leading" secondItem="Ran-Dy-Ma4" secondAttribute="trailing" constant="67" id="Ns1-2a-t9z"/>
+                            <constraint firstAttribute="centerX" secondItem="Maa-op-0fU" secondAttribute="centerX" id="RS8-x4-4KM"/>
+                            <constraint firstItem="oHv-6o-nA1" firstAttribute="top" secondItem="JtA-vD-nKa" secondAttribute="bottom" constant="43" id="Wbi-GB-FM1"/>
+                            <constraint firstItem="JtA-vD-nKa" firstAttribute="centerX" secondItem="Maa-op-0fU" secondAttribute="centerX" id="aDF-uV-3Gj"/>
+                            <constraint firstItem="Maa-op-0fU" firstAttribute="top" secondItem="LTy-6f-UYk" secondAttribute="bottom" constant="82" id="jPI-5Y-HG8"/>
+                            <constraint firstItem="Ran-Dy-Ma4" firstAttribute="top" secondItem="JtA-vD-nKa" secondAttribute="bottom" constant="43" id="nk4-iz-Ef0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tfNombre" destination="Maa-op-0fU" id="Vnw-8l-fP4"/>
+                        <outlet property="tfNota" destination="JtA-vD-nKa" id="pQc-IA-cGh"/>
+                        <segue destination="yAp-rP-zpe" kind="unwind" identifier="unwindToTudu" unwindAction="done:" id="gnf-IX-soj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fze-zj-R3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yAp-rP-zpe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="840" y="642"/>
         </scene>

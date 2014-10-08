@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tudu.h"
 
 @interface AddViewController : UIViewController
+
+@property Tudu *tudu;
 
 @end
