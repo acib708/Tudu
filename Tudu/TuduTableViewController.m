@@ -18,8 +18,9 @@
 @implementation TuduTableViewController
 @synthesize tudus = _tudus;
 
+#pragma mark - View Lifecycle
 - (void)viewDidLoad {
-    // Call to super
+    // Super call
     [super viewDidLoad];
     
     // Add Add button to the right of the navigation bar
@@ -27,11 +28,18 @@
                                                                                            target:self
                                                                                            action:@selector(addTudu)];
     
-    // Init tudus array with seed data
-    Tudu *item1 = [[Tudu alloc] initWithNombre:@"Comprar un perro"             andCompletado:NO];
-    Tudu *item2 = [[Tudu alloc] initWithNombre:@"Presentar Core Data"          andCompletado:NO];
-    Tudu *item3 = [[Tudu alloc] initWithNombre:@"Leer A Universe From Nothing" andCompletado:NO];
+    // Init some Tudu items. Notice the three line methods!
+    Tudu *item1 = [[Tudu alloc] initWithNombre:@"Comprar un perro"
+                                          nota: @"Que NO sea Beagle"
+                                    completado:NO];
+    Tudu *item2 = [[Tudu alloc] initWithNombre:@"Presentar Core Data"
+                                          nota: @"Github: https://github.com/acib708/Tudu.git"
+                                    completado:NO];
+    Tudu *item3 = [[Tudu alloc] initWithNombre:@"Leer A Universe From Nothing"
+                                          nota: @"Que NO sea Beagle"
+                                    completado:NO];
     
+    // Add items to a mutable array. This will be our source for the data in the table view
     _tudus = [[NSMutableArray alloc] initWithObjects:item1, item2, item3, nil];
     
     // Add Title
@@ -48,7 +56,6 @@
 }
 
 #pragma mark - TableView Data Source and Delegate
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -57,58 +64,22 @@
     return _tudus.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    // Deque cell
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tuduCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    // Get tudu object from array, corresponding to the current cell
+    Tudu *currentTudu = [_tudus objectAtIndex:indexPath.row];
+    
+    // Configure the cell
+    [cell.textLabel       setText:currentTudu.nombre];
+    [cell.detailTextLabel setText:currentTudu.nota];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+#pragma mark - Segues
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
 
 @end

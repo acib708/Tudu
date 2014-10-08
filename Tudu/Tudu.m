@@ -9,12 +9,13 @@
 #import "Tudu.h"
 
 @implementation Tudu
-@synthesize nombre = _nombre, completado = _completado;
+@synthesize nombre = _nombre, nota = _nota, completado = _completado;
 
--(id)initWithNombre:(NSString *)nombre andCompletado:(BOOL)completado{
+-(id)initWithNombre:(NSString *)nombre nota:(NSString *)nota completado:(BOOL)completado{
     Tudu *theTodo = [Tudu new];
     if(theTodo){
         [theTodo setNombre:nombre];
+        [theTodo setNota:nota];
         [theTodo setCompletado:completado];
     }
     else

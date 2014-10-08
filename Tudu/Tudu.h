@@ -11,8 +11,9 @@
 @interface Tudu : NSObject
 
 @property (nonatomic, strong) NSString *nombre;
+@property (nonatomic, strong) NSString *nota;
 @property (nonatomic)         BOOL      completado;
 
--(id)initWithNombre:(NSString *)nombre andCompletado:(BOOL)completado;
+-(id)initWithNombre:(NSString *)nombre nota:(NSString *)nota completado:(BOOL)completado;
 
 @end

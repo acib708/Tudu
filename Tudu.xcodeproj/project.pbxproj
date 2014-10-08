@@ -16,6 +16,7 @@
 		5225A7B019E4B1E300296196 /* TuduTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5225A7AF19E4B1E300296196 /* TuduTests.m */; };
 		5225A7BB19E4BA1200296196 /* TuduTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5225A7BA19E4BA1200296196 /* TuduTableViewController.m */; };
 		5225A7BE19E4BA4C00296196 /* Tudu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5225A7BD19E4BA4C00296196 /* Tudu.m */; };
+		5225A7C419E4CD8300296196 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5225A7C319E4CD8300296196 /* AddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		5225A7BA19E4BA1200296196 /* TuduTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuduTableViewController.m; sourceTree = "<group>"; };
 		5225A7BC19E4BA4C00296196 /* Tudu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tudu.h; sourceTree = "<group>"; };
 		5225A7BD19E4BA4C00296196 /* Tudu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tudu.m; sourceTree = "<group>"; };
+		5225A7C219E4CD8300296196 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		5225A7C319E4CD8300296196 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +89,11 @@
 		5225A78F19E4B1E300296196 /* Tudu */ = {
 			isa = PBXGroup;
 			children = (
-				5225A79D19E4B1E300296196 /* Main.storyboard */,
 				5225A79419E4B1E300296196 /* AppDelegate.h */,
 				5225A79519E4B1E300296196 /* AppDelegate.m */,
-				5225A7B919E4BA1200296196 /* TuduTableViewController.h */,
-				5225A7BA19E4BA1200296196 /* TuduTableViewController.m */,
-				5225A7BC19E4BA4C00296196 /* Tudu.h */,
-				5225A7BD19E4BA4C00296196 /* Tudu.m */,
+				5225A7C019E4CCB400296196 /* Model */,
+				5225A7C119E4CCBF00296196 /* View */,
+				5225A7BF19E4CC9E00296196 /* Controller */,
 				5225A7A019E4B1E300296196 /* Images.xcassets */,
 				5225A7A219E4B1E300296196 /* LaunchScreen.xib */,
 				5225A79719E4B1E300296196 /* Tudu.xcdatamodeld */,
@@ -125,6 +126,34 @@
 				5225A7AE19E4B1E300296196 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5225A7BF19E4CC9E00296196 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5225A7B919E4BA1200296196 /* TuduTableViewController.h */,
+				5225A7BA19E4BA1200296196 /* TuduTableViewController.m */,
+				5225A7C219E4CD8300296196 /* AddViewController.h */,
+				5225A7C319E4CD8300296196 /* AddViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5225A7C019E4CCB400296196 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5225A7BC19E4BA4C00296196 /* Tudu.h */,
+				5225A7BD19E4BA4C00296196 /* Tudu.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5225A7C119E4CCBF00296196 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5225A79D19E4B1E300296196 /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +259,7 @@
 			files = (
 				5225A7BE19E4BA4C00296196 /* Tudu.m in Sources */,
 				5225A79919E4B1E300296196 /* Tudu.xcdatamodeld in Sources */,
+				5225A7C419E4CD8300296196 /* AddViewController.m in Sources */,
 				5225A7BB19E4BA1200296196 /* TuduTableViewController.m in Sources */,
 				5225A79619E4B1E300296196 /* AppDelegate.m in Sources */,
 				5225A79319E4B1E300296196 /* main.m in Sources */,
