@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TuduTableViewController.h
 //  Tudu
 //
 //  Created by Alejandro Cárdenas on 10/7/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TuduTableViewController : UITableViewController
 
 @end
-
