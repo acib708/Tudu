@@ -44,10 +44,10 @@
 
 #pragma mark - Add Button Pressed
 -(void)addTudu{
-    
+    NSLog(@"Add Tudu");
 }
 
-#pragma mark - Table view data source
+#pragma mark - TableView Data Source and Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
