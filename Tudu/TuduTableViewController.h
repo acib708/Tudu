@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TuduTableViewController : UITableViewController
+@interface TuduTableViewController : UITableViewController <UIGestureRecognizerDelegate>
 
 @end

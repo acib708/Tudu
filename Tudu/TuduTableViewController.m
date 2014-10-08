@@ -11,9 +11,7 @@
 #import "AddViewController.h"
 
 @interface TuduTableViewController ()
-
 @property (nonatomic, strong) NSMutableArray *tudus;
-
 @end
 
 @implementation TuduTableViewController
@@ -28,6 +26,10 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                            target:self
                                                                                            action:@selector(addTudu)];
+    // Create gesture recognizer for deleting items
+    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(deleteTuduForGesture:)];
+    [swipeGestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft)];
+    [self.tableView addGestureRecognizer:swipeGestureRecognizer];
     
     // Init some Tudu items. Notice the three line methods!
     Tudu *item1 = [[Tudu alloc] initWithNombre:@"Comprar un perro"
@@ -51,9 +53,21 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Add Button Pressed
+#pragma mark - Add/Delete Tudus
 -(void)addTudu{
     [self performSegueWithIdentifier:@"modalToAdd" sender:self];
+}
+
+- (void)deleteTuduForGesture:(UILongPressGestureRecognizer *)gesture{
+    // Check if gesture has finishes
+    if ( gesture.state == UIGestureRecognizerStateEnded ) {
+        // Get cell the gestured triggered off of
+        UITableViewCell *cell = (UITableViewCell *)gesture.view;
+        // Remove tudu object related to such cell
+        [_tudus removeObjectAtIndex:[self.tableView indexPathForCell:cell].row];
+        // Update table
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - TableView Data Source and Delegate
@@ -87,12 +101,12 @@
     Tudu *selectedTudu = [_tudus objectAtIndex:indexPath.row];
     
     if(selectedTudu.completado){
-        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
         [selectedTudu setCompletado:NO];
+        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
     }
     else{
-        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
         [selectedTudu setCompletado:YES];
+        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
     
 }
